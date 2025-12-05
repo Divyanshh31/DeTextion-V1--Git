@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane
+    styleClass="root"
+    xmlns:fx="http://javafx.com/fxml"
+    fx:controller="com.controllers.MainController"
+    stylesheets="@/css/styles.css"
+    prefWidth="950" prefHeight="650"
+    style="-fx-background-insets: 0; -fx-padding: 0;">
+
+    <!-- ✅ TOP TOOLBAR ALWAYS AT TOP -->
+    <top>
+        <ScrollPane fitToHeight="true" fitToWidth="true"
+         	hbarPolicy="NEVER" vbarPolicy="NEVER"
+         	style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-padding: 0; -fx-border-width: 0;">
+            <ToolBar fx:id="mainToolbar"
+                     styleClass="toolbar"
+                     visible="false" managed="false"
+                     style="-fx-spacing: 8; -fx-background-color: rgba(20,25,30,0.95); -fx-padding: 5 8;">
+                
+                <!-- === PDF Actions === -->
+                <Label text="📂 PDF Tools:" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button text="Open Single PDF" onAction="#onUploadClicked"/>
+                <Button text="Open Multiple PDFs" onAction="#onUploadMultipleClicked"/>
+
+                <Separator orientation="VERTICAL"/>
+
+                <!-- === Chart Actions === -->
+                <Label text="📊 Charts:" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button text="Show Keyword Chart" onAction="#openKeywordChart"/>
+
+                <Separator orientation="VERTICAL"/>
+
+                <!-- === Notes Section === -->
+                <Label text="🗒 Notes:" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button text="Open Notes Editor" onAction="#openNotes">
+                    <tooltip><Tooltip text="Open personal note editor window"/></tooltip>
+                </Button>
+
+                <Separator orientation="VERTICAL"/>
+
+                <!-- === Edit Controls === -->
+                <Label text="✂ Edit:" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button text="Cut" onAction="#onCutClicked"/>
+                <Button text="Copy" onAction="#onCopyClicked"/>
+                <Button text="Paste" onAction="#onPasteClicked"/>
+
+                <Separator orientation="VERTICAL"/>
+
+                <!-- === Undo/Redo === -->
+                <Label text="↩ Undo/Redo:" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button text="Undo" onAction="#onUndoClicked"/>
+                <Button text="Redo" onAction="#onRedoClicked"/>
+
+                <Separator orientation="VERTICAL"/>
+
+                <!-- === File Management === -->
+                <Label text="🧹 Manage:" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button text="Clear" onAction="#onClearClicked"/>
+                <Button text="Save" onAction="#onSaveClicked"/>
+
+                <Separator orientation="VERTICAL"
+                           style="-fx-border-color: linear-gradient(to bottom, #6366f1, #a855f7);
+                                  -fx-border-width: 2; -fx-opacity: 0.7;"/>
+
+                <!-- === 🤖 AI Tools Section === -->
+                <Label text="🤖 AI Tools:"
+                       style="-fx-text-fill: linear-gradient(to right, #a855f7, #6366f1);
+                              -fx-font-weight: bold; -fx-font-size: 13px;"/>
+
+                <Button text="🧠 Summarize Text"
+                        onAction="#onSummarizeText"
+                        styleClass="ai-button"/>
+
+                <Button text="⚖ Compare PDFs"
+                        onAction="#onComparePDFs"
+                        styleClass="ai-button"/>
+
+                <Button text="🔠 Cluster Keywords"
+                        onAction="#onClusterKeywords"
+                        styleClass="ai-button"/>
+            </ToolBar>
+        </ScrollPane>
+    </top>
+
+    <!-- ✅ CENTER: Welcome + Editor -->
+    <center>
+        <VBox fx:id="mainVBox" alignment="CENTER" spacing="20">
+
+            <!-- 🌟 Welcome Section -->
+            <Label text="Welcome to DeTextion" styleClass="title-text"/>
+
+            <!-- 📝 Open PDF Text Editor -->
+            <Button fx:id="openEditorButton"
+                    text="📝 Open Text Editor"
+                    styleClass="start-button"
+                    onAction="#handleOpenEditor"/>
+
+            <!-- 🗒 Open Note Editor -->
+            <Button fx:id="openNoteEditorButton"
+                    text="🗒 Open Note Editor"
+                    styleClass="start-button"
+                    onAction="#openNotes">
+                <tooltip><Tooltip text="Open your personal note editor"/></tooltip>
+            </Button>
+
+            <!-- 🧠 Split layout for editor + graph -->
+            <SplitPane fx:id="editorFrame"
+                       orientation="HORIZONTAL"
+                       visible="false" managed="false"
+                       dividerPositions="0.55"
+                       prefWidth="900" prefHeight="600">
+
+                <!-- === Left: Text Editor === -->
+                <VBox spacing="10" styleClass="editor-frame">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label text="📝 PDF Text Editor"
+                               style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: linear-gradient(to right, #7bc4ff, #b3d9ff);"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button text="🔍 Find" onAction="#onFindClicked" styleClass="mini-button"/>
+                        <Button text="✨ Highlight" onAction="#onHighlightClicked" styleClass="mini-button"/>
+                        <Button text="🧹 Clear" onAction="#onClearClicked" styleClass="mini-button"/>
+                    </HBox>
+
+                    <HBox spacing="8" alignment="TOP_LEFT">
+                        <VBox fx:id="lineNumberPane"
+                              styleClass="line-pane"
+                              prefWidth="45"
+                              alignment="TOP_RIGHT"/>
+                        <TextArea fx:id="textAreaContent"
+                                  promptText="Extracted PDF text will appear here..."
+                                  wrapText="true"
+                                  styleClass="code-text-area"/>
+                    </HBox>
+                </VBox>
+
+                <!-- === Right: Graph Visualization === -->
+                <AnchorPane fx:id="graphPane"
+                            prefWidth="400" prefHeight="500"
+                            style="-fx-background-color: rgba(20,20,25,0.95);
+                                   -fx-border-color: rgba(100,160,255,0.25);
+                                   -fx-border-width: 2;
+                                   -fx-background-radius: 10;
+                                   -fx-border-radius: 10;">
+                    <Label text="📈 Keyword Graph / PDF Connections"
+                           layoutX="15" layoutY="10"
+                           style="-fx-text-fill: linear-gradient(to right, #6db5ff, #b5d9ff);
+                                  -fx-font-weight: bold;
+                                  -fx-font-size: 16;"/>
+                </AnchorPane>
+            </SplitPane>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,168 @@
+/* =======================
+   🌌 DeTextion – Dark Nova Theme
+   ======================= */
+
+/* ====== GLOBAL ====== */
+.root {
+    -fx-background-color:
+        radial-gradient(center 30% 25%, radius 120%, rgba(15,20,28,1), rgba(10,13,18,1) 80%),
+        linear-gradient(to bottom right, #0b0f17, #161b22);
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+    -fx-text-fill: #e6edf3;
+    -fx-font-smoothing-type: lcd;
+}
+
+/* ====== TOOLBAR ====== */
+.tool-bar {
+    -fx-background-color: rgba(22,27,34,0.95);
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(100,160,255,0.35);
+    -fx-border-radius: 12;
+    -fx-border-width: 1.2;
+    -fx-padding: 6 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 15, 0.3, 0, 2);
+}
+
+/* Toolbar Buttons */
+.tool-bar .button {
+    -fx-background-color: linear-gradient(to bottom right, #2563eb, #1e40af);
+    -fx-text-fill: white;
+    -fx-font-weight: 700;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-border-color: rgba(120,180,255,0.4);
+    -fx-padding: 6 12;
+}
+.tool-bar .button:hover {
+    -fx-background-color: linear-gradient(to bottom right, #3b82f6, #60a5fa);
+    -fx-effect: dropshadow(gaussian, rgba(80,160,255,0.8), 12, 0.4, 0, 2);
+}
+
+/* Toolbar Labels */
+.tool-bar .label {
+    -fx-text-fill: linear-gradient(to right, #cfe3ff, #b6d4ff);
+    -fx-font-weight: bold;
+}
+
+/* ====== TITLE ====== */
+.title-text {
+    -fx-font-size: 26px;
+    -fx-font-weight: 900;
+    -fx-text-fill: linear-gradient(to right, #5aa9ff, #9cd3ff);
+    -fx-effect: dropshadow(gaussian, rgba(100,180,255,0.5), 8, 0.3, 0, 2);
+    -fx-padding: 0 0 12 0;
+}
+
+/* ====== START BUTTONS ====== */
+.start-button {
+    -fx-background-color: linear-gradient(to bottom right, #2d72ff, #5ca6ff);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: 800;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 8, 0.3, 0, 2);
+}
+.start-button:hover {
+    -fx-background-color: linear-gradient(to bottom right, #3f8cff, #76b2ff);
+    -fx-scale-x: 1.06;
+    -fx-scale-y: 1.06;
+}
+
+/* ====== MINI BUTTONS ====== */
+.mini-button {
+    -fx-background-color: rgba(65, 120, 255, 0.28);
+    -fx-border-color: rgba(100,180,255,0.55);
+    -fx-text-fill: #e6f2ff;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-padding: 5 10;
+    -fx-cursor: hand;
+}
+.mini-button:hover {
+    -fx-background-color: linear-gradient(to bottom right, #3b82f6, #60a5fa);
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(90,180,255,0.7), 10, 0.4, 0, 2);
+}
+
+/* ====== AI BUTTONS ====== */
+.ai-button {
+    -fx-background-color: linear-gradient(to bottom right, #9333ea, #6366f1);
+    -fx-border-color: rgba(180, 160, 255, 0.5);
+    -fx-text-fill: white;
+    -fx-font-weight: 800;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-font-size: 13px;
+    -fx-padding: 7 14;
+}
+.ai-button:hover {
+    -fx-background-color: linear-gradient(to bottom right, #a855f7, #818cf8);
+    -fx-effect: dropshadow(gaussian, rgba(180,130,255,0.9), 14, 0.5, 0, 2);
+}
+
+/* ====== EDITOR AREA ====== */
+.editor-frame {
+    -fx-background-color: rgba(25, 30, 40, 0.95);
+    -fx-background-radius: 14;
+    -fx-border-color: rgba(100,180,255,0.3);
+    -fx-border-radius: 14;
+    -fx-border-width: 1.2;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 12, 0.3, 0, 2);
+}
+
+/* TextArea */
+#textAreaContent, .text-area {
+    -fx-control-inner-background: #0f141b;
+    -fx-text-fill: #f4f6fb;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: #94a3b8;
+    -fx-caret-color: #7aa2ff;
+    -fx-highlight-fill: rgba(255, 255, 130, 0.4);
+    -fx-highlight-text-fill: #0b0e14;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: rgba(120, 170, 255, 0.45);
+    -fx-border-width: 1;
+}
+.text-area:focused {
+    -fx-border-color: #7aa2ff;
+    -fx-effect: dropshadow(gaussian, rgba(100,180,255,0.5), 8, 0.3, 0, 2);
+}
+
+/* ====== GRAPH PANEL ====== */
+#graphPane {
+    -fx-background-color:
+        radial-gradient(center 50% 50%, radius 90%, rgba(12,15,22,0.9), rgba(18,22,28,0.98));
+    -fx-background-radius: 14;
+    -fx-border-radius: 14;
+    -fx-border-color: rgba(120,180,255,0.22);
+    -fx-border-width: 1.3;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 20, 0.4, 0, 3);
+}
+
+/* ====== SPLIT DIVIDER ====== */
+.split-pane-divider {
+    -fx-background-color: linear-gradient(to bottom, rgba(100,150,255,0.45), rgba(120,180,255,0.25));
+    -fx-padding: 0.25em;
+}
+
+/* ====== WELCOME CARD ====== */
+.welcome-card {
+    -fx-background-color: rgba(20, 26, 35, 0.55);
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-border-color: rgba(110,160,255,0.18);
+    -fx-border-width: 1;
+    -fx-padding: 22 26;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 18, 0.25, 0, 4);
+}
+
+/* ====== SCROLLPANE CLEANUP ====== */
+.scroll-pane, .scroll-pane .viewport, .border-pane {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}

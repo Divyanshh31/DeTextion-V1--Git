@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.paint.Color?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.detextion.notes.NoteEditorController"
+            prefWidth="800" prefHeight="550"
+            style="-fx-background-color: linear-gradient(to bottom right, #1f1c2c, #928dab);">
+
+    <!-- Glass-like card container -->
+    <VBox alignment="CENTER" spacing="20" prefWidth="700" prefHeight="480"
+          style="-fx-background-color: rgba(255,255,255,0.1);
+                 -fx-background-radius: 20;
+                 -fx-border-color: rgba(255,255,255,0.25);
+                 -fx-border-radius: 20;">
+        <effect>
+            <DropShadow radius="25" color="#00000055"/>
+        </effect>
+
+        <padding>
+            <Insets top="25" right="35" bottom="25" left="35"/>
+        </padding>
+
+        <!-- Header -->
+        <Label text="🪶 Personal Note Editor"
+               style="-fx-text-fill: white;
+                      -fx-font-size: 26px;
+                      -fx-font-family: 'Segoe UI Semibold';
+                      -fx-font-weight: bold;"/>
+
+        <!-- Title input -->
+        <TextField fx:id="titleField"
+                   promptText="Enter note title here..."
+                   style="-fx-background-radius: 10;
+                          -fx-background-color: rgba(255,255,255,0.15);
+                          -fx-text-fill: white;
+                          -fx-prompt-text-fill: #bbbbbb;
+                          -fx-font-size: 14px;"
+                   prefWidth="600"/>
+
+        <!-- Text area -->
+        <TextArea fx:id="contentArea"
+                  promptText="Write your thoughts or notes..."
+                  wrapText="true"
+                  prefWidth="600" prefHeight="200"
+                  style="-fx-background-radius: 10;
+                         -fx-background-color: rgba(255,255,255,0.15);
+                         -fx-text-fill: white;
+                         -fx-font-family: 'Segoe UI';
+                         -fx-font-size: 14px;
+                         -fx-prompt-text-fill: #cccccc;"/>
+
+        <!-- Button bar -->
+        <HBox alignment="CENTER" spacing="20">
+            <Button text="💾 Save Note"
+                    onAction="#onSaveClicked"
+                    style="-fx-background-color: linear-gradient(to right, #56ab2f, #a8e063);
+                           -fx-text-fill: white;
+                           -fx-font-size: 14px;
+                           -fx-font-weight: bold;
+                           -fx-background-radius: 25;
+                           -fx-padding: 10 25 10 25;"/>
+
+            <Button text="🔄 Reload"
+                    onAction="#onLoadNotesClicked"
+                    style="-fx-background-color: linear-gradient(to right, #00c6ff, #0072ff);
+                           -fx-text-fill: white;
+                           -fx-font-size: 14px;
+                           -fx-font-weight: bold;
+                           -fx-background-radius: 25;
+                           -fx-padding: 10 25 10 25;"/>
+
+            <Button text="🗑 Clear"
+                    onAction="#onClearClicked"
+                    style="-fx-background-color: linear-gradient(to right, #ff512f, #dd2476);
+                           -fx-text-fill: white;
+                           -fx-font-size: 14px;
+                           -fx-font-weight: bold;
+                           -fx-background-radius: 25;
+                           -fx-padding: 10 25 10 25;"/>
+        </HBox>
+
+        <!-- Notes List -->
+        <VBox alignment="CENTER" spacing="10" prefWidth="600">
+            <Label text="📚 Saved Notes"
+                   style="-fx-text-fill: white;
+                          -fx-font-size: 18px;
+                          -fx-font-weight: bold;"/>
+            <ListView fx:id="noteListView"
+                      prefHeight="150"
+                      style="-fx-background-radius: 10;
+                             -fx-background-color: rgba(255,255,255,0.1);
+                             -fx-control-inner-background: transparent;
+                             -fx-text-fill: white;
+                             -fx-border-color: rgba(255,255,255,0.25);
+                             -fx-border-radius: 10;"/>
+        </VBox>
+    </VBox>
+</StackPane>

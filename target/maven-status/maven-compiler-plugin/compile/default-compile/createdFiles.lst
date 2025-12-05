@@ -1,0 +1,15 @@
+com\detextion\textanalysis\KeywordFrequencyChart.class
+com\detextion\notes\NoteService.class
+com\controllers\MainController$EdgeBody.class
+com\detextion\repository\DatabaseConnection.class
+com\controllers\MainController.class
+com\detextion\notes\NoteEditorController.class
+com\detextion\graph\GraphConnector.class
+com\controllers\MainController$NodeBody.class
+com\detextion\services\DocumentService.class
+com\detextion\textanalysis\TextAnalyzer.class
+com\detextion\textanalysis\KeywordExtractor.class
+com\detextion\notes\Note.class
+com\detextion\services\Main.class
+com\detextion\services\PDFExtractionService.class
+com\detextion\utils\FileUtils.class
