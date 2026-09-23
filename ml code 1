@@ -1,0 +1,298 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Divyanshh31/DeTextion-V1--Git/blob/master/ml%20code%201\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# New Section"
+      ],
+      "metadata": {
+        "id": "Dn5q87Hx0yOa"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "# Create a dataset directly in Python\n",
+        "data = pd.DataFrame({\n",
+        "    \"Name\": [\"Rahul\", \"Aman\", \"Priya\", \"Riya\", \"Arjun\"],\n",
+        "    \"Age\": [20, 21, 20, 22, 21],\n",
+        "    \"Marks\": [85, 90, 78, 92, 88]\n",
+        "})\n",
+        "\n",
+        "# Display the complete dataset\n",
+        "print(\"Complete Dataset:\")\n",
+        "print(data)\n",
+        "\n",
+        "# Display first 5 rows\n",
+        "print(\"\\nFirst 5 rows:\")\n",
+        "print(data.head())\n",
+        "\n",
+        "# Display last 5 rows\n",
+        "print(\"\\nLast 5 rows:\")\n",
+        "print(data.tail())"
+      ],
+      "metadata": {
+        "id": "ffKNDibb0zgA",
+        "outputId": "6e52d56c-92a4-43b9-ebfb-03f250de8a0a",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Complete Dataset:\n",
+            "    Name  Age  Marks\n",
+            "0  Rahul   20     85\n",
+            "1   Aman   21     90\n",
+            "2  Priya   20     78\n",
+            "3   Riya   22     92\n",
+            "4  Arjun   21     88\n",
+            "\n",
+            "First 5 rows:\n",
+            "    Name  Age  Marks\n",
+            "0  Rahul   20     85\n",
+            "1   Aman   21     90\n",
+            "2  Priya   20     78\n",
+            "3   Riya   22     92\n",
+            "4  Arjun   21     88\n",
+            "\n",
+            "Last 5 rows:\n",
+            "    Name  Age  Marks\n",
+            "0  Rahul   20     85\n",
+            "1   Aman   21     90\n",
+            "2  Priya   20     78\n",
+            "3   Riya   22     92\n",
+            "4  Arjun   21     88\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# New Section"
+      ],
+      "metadata": {
+        "id": "UzBmifL11iz7"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "data = pd.DataFrame({\n",
+        "    \"Name\": [\"Rahul\", \"Aman\", \"Priya\", \"Riya\", \"Arjun\"],\n",
+        "    \"Age\": [20, 21, 20, 22, 21],\n",
+        "    \"Marks\": [85, 90, 78, 92, 88]\n",
+        "})\n",
+        "\n",
+        "print(\"Dataset Information:\")\n",
+        "print(data.info())\n",
+        "\n",
+        "print(\"\\nStatistical Summary:\")\n",
+        "print(data.describe())\n",
+        "\n",
+        "print(\"\\nShape:\")\n",
+        "print(data.shape)\n",
+        "\n",
+        "print(\"\\nColumns:\")\n",
+        "print(data.columns)"
+      ],
+      "metadata": {
+        "id": "dJCtEFSq1kj-",
+        "outputId": "45d3a0a0-3c1f-46c1-d435-a1168b4f62c5",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Dataset Information:\n",
+            "<class 'pandas.core.frame.DataFrame'>\n",
+            "RangeIndex: 5 entries, 0 to 4\n",
+            "Data columns (total 3 columns):\n",
+            " #   Column  Non-Null Count  Dtype \n",
+            "---  ------  --------------  ----- \n",
+            " 0   Name    5 non-null      object\n",
+            " 1   Age     5 non-null      int64 \n",
+            " 2   Marks   5 non-null      int64 \n",
+            "dtypes: int64(2), object(1)\n",
+            "memory usage: 252.0+ bytes\n",
+            "None\n",
+            "\n",
+            "Statistical Summary:\n",
+            "            Age      Marks\n",
+            "count   5.00000   5.000000\n",
+            "mean   20.80000  86.600000\n",
+            "std     0.83666   5.458938\n",
+            "min    20.00000  78.000000\n",
+            "25%    20.00000  85.000000\n",
+            "50%    21.00000  88.000000\n",
+            "75%    21.00000  90.000000\n",
+            "max    22.00000  92.000000\n",
+            "\n",
+            "Shape:\n",
+            "(5, 3)\n",
+            "\n",
+            "Columns:\n",
+            "Index(['Name', 'Age', 'Marks'], dtype='object')\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# New Section"
+      ],
+      "metadata": {
+        "id": "V596WOoA14D5"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "from sklearn.model_selection import train_test_split\n",
+        "from sklearn.linear_model import LinearRegression\n",
+        "from sklearn.metrics import mean_squared_error\n",
+        "\n",
+        "data = pd.DataFrame({\n",
+        "    \"Hours\": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],\n",
+        "    \"Marks\": [35, 40, 45, 50, 55, 60, 65, 70, 85, 90]\n",
+        "})\n",
+        "\n",
+        "X = data[[\"Hours\"]]\n",
+        "y = data[\"Marks\"]\n",
+        "\n",
+        "X_train, X_test, y_train, y_test = train_test_split(\n",
+        "    X, y, test_size=0.2, random_state=42\n",
+        ")\n",
+        "\n",
+        "model = LinearRegression()\n",
+        "\n",
+        "model.fit(X_train, y_train)\n",
+        "\n",
+        "y_pred = model.predict(X_test)\n",
+        "\n",
+        "print(\"Predicted values:\", y_pred)\n",
+        "print(\"Mean Squared Error:\", mean_squared_error(y_test, y_pred))"
+      ],
+      "metadata": {
+        "id": "KMINBU0s15LR",
+        "outputId": "4442dd66-0f2f-402c-f8de-628a3cbfd35c",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Predicted values: [78.96551724 38.53448276]\n",
+            "Mean Squared Error: 19.28136147443525\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# New Section"
+      ],
+      "metadata": {
+        "id": "I0zwXU3l2S6c"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from sklearn.datasets import load_iris\n",
+        "from sklearn.model_selection import train_test_split\n",
+        "from sklearn.linear_model import LogisticRegression\n",
+        "from sklearn.svm import SVC\n",
+        "from sklearn.metrics import accuracy_score\n",
+        "\n",
+        "iris = load_iris()\n",
+        "\n",
+        "X = iris.data\n",
+        "y = iris.target\n",
+        "\n",
+        "X_train, X_test, y_train, y_test = train_test_split(\n",
+        "    X, y, test_size=0.2, random_state=42\n",
+        ")\n",
+        "\n",
+        "logistic = LogisticRegression(max_iter=200)\n",
+        "logistic.fit(X_train, y_train)\n",
+        "\n",
+        "y_pred_logistic = logistic.predict(X_test)\n",
+        "\n",
+        "print(\"Logistic Regression Accuracy:\",\n",
+        "      accuracy_score(y_test, y_pred_logistic))\n",
+        "\n",
+        "svm = SVC(kernel=\"linear\")\n",
+        "svm.fit(X_train, y_train)\n",
+        "\n",
+        "y_pred_svm = svm.predict(X_test)\n",
+        "\n",
+        "print(\"SVM Accuracy:\",\n",
+        "      accuracy_score(y_test, y_pred_svm))"
+      ],
+      "metadata": {
+        "id": "6ho8daop2Tym",
+        "outputId": "c86c4fa1-1e3b-4297-cb60-9de678a33c25",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Logistic Regression Accuracy: 1.0\n",
+            "SVM Accuracy: 1.0\n"
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "name": "Get_started_managed_agents.ipynb",
+      "toc_visible": true,
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
